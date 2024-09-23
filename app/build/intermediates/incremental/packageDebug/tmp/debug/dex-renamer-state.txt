@@ -1,4 +1,0 @@
-#Sat Sep 14 22:38:05 CST 2024
-base.0=E\:\\study\\JavaProjects\\Notes\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
