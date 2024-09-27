@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ ~ Nextcloud Notes - Android Client
+ ~
+ ~ SPDX-FileCopyrightText: 2015-2024 Nextcloud GmbH and Nextcloud contributors
+ ~ SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background">
+
+    <ListView
+        android:id="@+id/single_note_widget_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/widget_inner_padding_vertical"
+        android:paddingHorizontal="@dimen/widget_inner_padding_horizontal"
+        tools:listitem="@layout/widget_single_note_content" />
+
+    <TextView
+        android:id="@+id/widget_single_note_placeholder_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/spacer_1x"
+        android:text="@string/widget_single_note_placeholder_tv"
+        android:textAlignment="center"
+        android:textColor="@color/widget_foreground" />
+
+</RelativeLayout>

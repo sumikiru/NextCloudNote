@@ -1,0 +1,80 @@
+# SPDX-FileCopyrightText: 2023-2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-FileCopyrightText: 2020-2024 Stefan Niedermann <info@niedermann.it>
+# SPDX-FileCopyrightText: 2023 Álvaro Brey <alvaro.brey@nextcloud.com>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name: Android CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main, stable-* ]
+
+permissions:
+  contents: read
+
+jobs:
+  validation:
+    name: Validate Gradle Wrapper
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-java@2dfa2011c5b2a0f1489bf9e433881c92c1631f88 # v4.3.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+          cache: 'gradle'
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@f9c9c575b8b21b6485636a91ffecd10e558c62f6 # v3.5.0
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-java@2dfa2011c5b2a0f1489bf9e433881c92c1631f88 # v4.3.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+          cache: 'gradle'
+      - name: Lint
+        run: bash ./gradlew lintDevDebug --stacktrace --no-configuration-cache
+
+  test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-java@2dfa2011c5b2a0f1489bf9e433881c92c1631f88 # v4.3.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+          cache: 'gradle'
+      - name: Unit tests
+        run: bash ./gradlew test --stacktrace --no-configuration-cache
+
+  apk:
+    name: Generate APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-java@2dfa2011c5b2a0f1489bf9e433881c92c1631f88 # v4.3.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+          cache: 'gradle'
+      - name: Build debug APK
+        run: bash ./gradlew assembleDev --stacktrace --no-configuration-cache
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-dev-debug
+          path: app/build/outputs/apk/dev/debug/app-dev-debug.apk

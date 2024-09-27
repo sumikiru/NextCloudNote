@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Nextcloud Notes - Android Client
+  ~
+  ~ SPDX-FileCopyrightText: 2015-2024 Nextcloud GmbH and Nextcloud contributors
+  ~ SPDX-FileCopyrightText: 2015-2022 Stefan Niedermann <info@niedermann.it>
+  ~ SPDX-FileCopyrightText: 2020 Thore Goebel <goebel.thore@gmail.com>
+  ~ SPDX-FileCopyrightText: 2017 Daniel Bailey <dan0xii@users.noreply.github.com>
+  ~ SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<resources>
+    <!-- Colors -->
+
+    <color name="primary">#ffffff</color>
+    <color name="accent">#121212</color>
+    <color name="danger">#d40000</color>
+
+    <color name="defaultBrand">#0082C9</color>
+
+    <color name="cursorHandles">#555566</color>
+    <color name="defaultTextHighlightBackground">#2233334a</color>
+
+    <color name="bg_highlighted">#eee</color>
+    <color name="bg_normal">@color/primary</color>
+    <color name="bg_attention">#d40000</color>
+    <color name="bg_warning">#ffcc00</color>
+    <color name="fg_default">#000000</color>
+    <color name="fg_default_selection">#333333</color>
+    <color name="fg_default_low">#666666</color>
+    <color name="fg_default_high">#cccccc</color>
+    <color name="fg_secondary">#999999</color>
+    <color name="fg_contrast">#ffffff</color>
+
+    <color name="grey600">#757575</color>
+    <color name="icon_color_default">@color/grey600</color>
+
+    <color name="category_background">@color/bg_normal</color>
+    <color name="category_border">@color/defaultBrand</color>
+
+    <color name="appbar">@android:color/white</color>
+
+    <color name="widget_background">#ddffffff</color>
+    <color name="widget_foreground">#222222</color>
+</resources>

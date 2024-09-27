@@ -1,0 +1,47 @@
+<!--
+ ~ Nextcloud Notes - Android Client
+ ~
+ ~ SPDX-FileCopyrightText: 2020-2024 Nextcloud GmbH and Nextcloud contributors
+ ~ SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/categoryWrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="@dimen/spacer_2x">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacer_2x"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_folder_grey600_24dp" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_weight="1"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:textColor="?android:textColorPrimary"
+        tools:hint="@string/menu_change_category" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginStart="@dimen/spacer_2x"
+        android:textColor="@color/fg_default"
+        tools:text="23" />
+</LinearLayout>

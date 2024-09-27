@@ -1,0 +1,2 @@
+- #396 Initial support for weblogin (by @tobiasKaminsky)
+- #586 Improved search

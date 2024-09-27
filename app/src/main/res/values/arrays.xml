@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Nextcloud Notes - Android Client
+  ~
+  ~ SPDX-FileCopyrightText: 2017-2024 Nextcloud GmbH and Nextcloud contributors
+  ~ SPDX-FileCopyrightText: 2020 Stefan Niedermann <info@niedermann.it>
+  ~ SPDX-FileCopyrightText: 2020 Christoph Loy <loy.christoph@gmail.com>
+  ~ SPDX-FileCopyrightText: 2019 Kamil K <kamil@ryuu.eu>
+  ~ SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<resources>
+    <string-array name="noteMode_values">
+        <item>@string/pref_value_mode_edit</item>
+        <item>@string/pref_value_mode_preview</item>
+        <item>@string/pref_value_mode_direct_edit</item>
+        <item>@string/pref_value_mode_last</item>
+    </string-array>
+    <string-array name="fontSize_values">
+        <item>@string/pref_value_font_size_small</item>
+        <item>@string/pref_value_font_size_medium</item>
+        <item>@string/pref_value_font_size_large</item>
+    </string-array>
+    <string-array name="darkMode_values">
+        <item>@string/pref_value_theme_light</item>
+        <item>@string/pref_value_theme_dark</item>
+        <item>@string/pref_value_theme_system_default</item>
+    </string-array>
+</resources>

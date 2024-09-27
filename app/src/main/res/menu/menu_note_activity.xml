@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ ~ Nextcloud Notes - Android Client
+ ~
+ ~ SPDX-FileCopyrightText: 2017-2024 Nextcloud GmbH and Nextcloud contributors
+ ~ SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_preview"
+        android:icon="@drawable/ic_eye_grey600_24dp"
+        android:orderInCategory="60"
+        android:title="@string/menu_preview"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@drawable/ic_edit_grey600_24dp"
+        android:orderInCategory="60"
+        android:title="@string/simple_edit"
+        app:showAsAction="ifRoom" />
+</menu>

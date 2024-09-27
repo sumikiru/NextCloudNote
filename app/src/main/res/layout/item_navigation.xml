@@ -1,0 +1,44 @@
+<!--
+ ~ Nextcloud Notes - Android Client
+ ~
+ ~ SPDX-FileCopyrightText: 2017-2024 Nextcloud GmbH and Nextcloud contributors
+ ~ SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_navdrawer_item"
+    android:gravity="center_vertical"
+    android:paddingStart="@dimen/spacer_1x"
+    android:paddingEnd="@dimen/spacer_2x">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/navigationItemIcon"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_folder_grey600_24dp" />
+
+    <TextView
+        android:id="@+id/navigationItemLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacer_1x"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="?android:textColorSecondary"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/navigationItemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacer_1x"
+        android:textColor="?android:textColorPrimary"
+        tools:text="37" />
+</LinearLayout>
