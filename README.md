@@ -1,3 +1,3 @@
-# MiNotes
+# NextCloudNote
 
-小米便签分析+修改（软件工程小组专用）
+NextCloud便签分析+修改（软件工程小组专用）
