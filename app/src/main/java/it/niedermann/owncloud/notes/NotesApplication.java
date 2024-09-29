@@ -40,7 +40,7 @@ public class NotesApplication extends Application {
     public void onCreate() {
         PREF_KEY_THEME = getString(R.string.pref_key_theme);
         setAppTheme(getAppTheme(getApplicationContext()));
-        setAppLanguage(this, "中文");
+        setAppLanguage(this, "English");
         final var prefs = getDefaultSharedPreferences(getApplicationContext());
         lockedPreference = prefs.getBoolean(getString(R.string.pref_key_lock), false);
         isGridViewEnabled = getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_key_gridview), false);
@@ -54,7 +54,7 @@ public class NotesApplication extends Application {
         AppCompatDelegate.setDefaultNightMode(setting.getModeId());
     }
 
-    public static void setAppLanguage(Context context, String language) {
+    public void setAppLanguage(Context context, String language) {
         Locale locale = language.equals("中文") ? Locale.CHINESE : Locale.ENGLISH;
         Locale.setDefault(locale);
 

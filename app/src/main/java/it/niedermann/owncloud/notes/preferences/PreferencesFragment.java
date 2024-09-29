@@ -44,7 +44,9 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Bra
     private BrandedSwitchPreference switchLanguagePref;
 
     private void setLanguage(Context context, String language) {
-        NotesApplication.setAppLanguage(context, language);
+        NotesApplication myApp = (NotesApplication) context.getApplicationContext();
+        myApp.setAppLanguage(context, language);
+        NotesApplication.updateLastInteraction();
     }
 
     @Override
@@ -72,7 +74,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Bra
         if (switchLanguagePref != null) {
             switchLanguagePref.setOnPreferenceChangeListener((Preference preference, Object newValue) -> {
                 Log.v(TAG, "switchLanguagePref: " + switchLanguagePref);
-                setLanguage(requireContext(), (Boolean) newValue ? "English" : "中文");
+                setLanguage(requireContext(), (Boolean) newValue ? "中文" : "English");
                 return true;
             });
         } else {
