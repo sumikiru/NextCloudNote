@@ -20,6 +20,10 @@
         <item>@string/pref_value_font_size_medium</item>
         <item>@string/pref_value_font_size_large</item>
     </string-array>
+    <string-array name="switchLanguage_values">
+        <item>@string/pref_value_switch_language_English</item>
+        <item>@string/pref_value_switch_language_Chinese_Simplified</item>
+    </string-array>
     <string-array name="darkMode_values">
         <item>@string/pref_value_theme_light</item>
         <item>@string/pref_value_theme_dark</item>

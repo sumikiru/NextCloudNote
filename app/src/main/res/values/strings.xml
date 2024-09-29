@@ -50,6 +50,8 @@
     <string name="settings_theme_title">Theme</string>
     <string name="settings_font_title">Monospace font</string>
     <string name="settings_font_size">Font size</string>
+    <string name="settings_switch_language">Switch Language</string>
+    <string name="settings_switch_language_summary">Switch Language to English/Chinese</string>
     <string name="settings_wifi_only">Sync only on Wi-Fi</string>
     <string name="settings_lock">App lock (Beta)</string>
     <string name="settings_lock_summary">Device credentials</string>
@@ -120,6 +122,7 @@
     <string name="pref_key_note_mode" translatable="false">noteMode</string>
     <string name="pref_key_theme" translatable="false">darkTheme</string>
     <string name="pref_key_font" translatable="false">font</string>
+    <string name="pref_key_switch_language" translatable="false">switchLanguage</string>
     <string name="pref_key_gridview" translatable="false">gridview</string>
     <string name="pref_key_keep_screen_on" translatable="false">keepScreenOn</string>
     <string name="pref_key_font_size" translatable="false">fontSize</string>
@@ -137,6 +140,8 @@
     <string name="pref_value_font_size_small" translatable="false">small</string>
     <string name="pref_value_font_size_medium" translatable="false">medium</string>
     <string name="pref_value_font_size_large" translatable="false">large</string>
+    <string name="pref_value_switch_language_English" translatable="false">English</string>
+    <string name="pref_value_switch_language_Chinese_Simplified" translatable="false">cn</string>
     <string name="pref_value_theme_light" translatable="false">LIGHT</string>
     <string name="pref_value_theme_dark" translatable="false">DARK</string>
     <string name="pref_value_theme_system_default" translatable="false">SYSTEM_DEFAULT</string>
@@ -240,6 +245,11 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+
+    <string-array name="switchLanguage_entries">
+        <item>English</item>
+        <item>简体中文</item>
     </string-array>
 
     <string-array name="darkmode_entries">

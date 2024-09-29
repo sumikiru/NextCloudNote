@@ -50,12 +50,16 @@
     <string name="settings_theme_title">主题</string>
     <string name="settings_font_title">等宽字体</string>
     <string name="settings_font_size">字体大小</string>
+    <string name="settings_switch_language">切换语言</string>
+    <string name="settings_switch_language_summary">切换中英文</string>
     <string name="settings_wifi_only">仅在Wi-Fi下同步</string>
     <string name="settings_lock">应用锁 （测试版）</string>
     <string name="settings_lock_summary">设备凭据</string>
     <string name="settings_background_sync">后台同步</string>
     <string name="settings_prevent_screen_capture">防止截屏</string>
     <string name="settings_gridview">网格视图</string>
+    <string name="settings_enable_direct_edit">直接编辑</string>
+    <string name="settings_enable_direct_edit_summary">禁用后，富文本编辑器将会被隐藏</string>
     <string name="settings_keep_screen_on">保持屏幕常亮</string>
     <string name="settings_keep_screen_on_summary">查看或编辑笔记时</string>
 

@@ -42,6 +42,7 @@ import it.niedermann.owncloud.notes.main.items.section.SectionViewHolder;
 import it.niedermann.owncloud.notes.persistence.entity.Note;
 import it.niedermann.owncloud.notes.shared.model.Item;
 import it.niedermann.owncloud.notes.shared.model.NoteClickListener;
+import it.niedermann.owncloud.notes.shared.util.NoteUtil;
 
 public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Branded {
 
@@ -60,6 +61,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     private SelectionTracker<Long> tracker = null;
     @Px
     private final float fontSize;
+    //private final boolean switchLanguage;
     private final boolean monospace;
     @ColorInt
     private int color;
@@ -72,6 +74,7 @@ public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         this.color = ContextCompat.getColor(context, R.color.defaultBrand);
         final var sp = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         this.fontSize = getFontSizeFromPreferences(context, sp);
+       // this.switchLanguage = getLanguageFromPreferences(context, sp);
         this.monospace = sp.getBoolean(context.getString(R.string.pref_key_font), false);
         setHasStableIds(true);
     }

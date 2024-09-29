@@ -41,6 +41,11 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Bra
     private BrandedSwitchPreference backgroundSyncPref;
     private BrandedSwitchPreference keepScreenOnPref;
     private BrandedSwitchPreference enableDirectEditorPref;
+    private BrandedSwitchPreference switchLanguagePref;
+
+    private void setLanguage(Context context, String language) {
+        NotesApplication.setAppLanguage(context, language);
+    }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -61,6 +66,17 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Bra
             });
         } else {
             Log.e(TAG, "Could not find preference with key: \"" + getString(R.string.pref_key_gridview) + "\"");
+        }
+
+        switchLanguagePref = findPreference(getString(R.string.pref_key_switch_language));
+        if (switchLanguagePref != null) {
+            switchLanguagePref.setOnPreferenceChangeListener((Preference preference, Object newValue) -> {
+                Log.v(TAG, "switchLanguagePref: " + switchLanguagePref);
+                setLanguage(requireContext(), (Boolean) newValue ? "English" : "中文");
+                return true;
+            });
+        } else {
+            Log.e(TAG, "switch Language: Could not find preference with key: \"" + getString(R.string.pref_key_gridview) + "\"");
         }
 
         keepScreenOnPref = findPreference(getString(R.string.pref_key_keep_screen_on));
@@ -144,6 +160,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Bra
         preventScreenCapturePref.applyBrand(color);
         backgroundSyncPref.applyBrand(color);
         keepScreenOnPref.applyBrand(color);
+        switchLanguagePref.applyBrand(color);
         enableDirectEditorPref.applyBrand(color);
     }
 }

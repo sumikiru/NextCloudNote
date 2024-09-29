@@ -15,12 +15,16 @@ import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.util.Log;
 import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
 import it.niedermann.owncloud.notes.preferences.DarkModeSetting;
+
+import java.util.Locale;
 
 public class NotesApplication extends Application {
     private static final String TAG = NotesApplication.class.getSimpleName();
@@ -36,6 +40,7 @@ public class NotesApplication extends Application {
     public void onCreate() {
         PREF_KEY_THEME = getString(R.string.pref_key_theme);
         setAppTheme(getAppTheme(getApplicationContext()));
+        setAppLanguage(this, "中文");
         final var prefs = getDefaultSharedPreferences(getApplicationContext());
         lockedPreference = prefs.getBoolean(getString(R.string.pref_key_lock), false);
         isGridViewEnabled = getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_key_gridview), false);
@@ -47,6 +52,16 @@ public class NotesApplication extends Application {
 
     public static void setAppTheme(DarkModeSetting setting) {
         AppCompatDelegate.setDefaultNightMode(setting.getModeId());
+    }
+
+    public static void setAppLanguage(Context context, String language) {
+        Locale locale = language.equals("中文") ? Locale.CHINESE : Locale.ENGLISH;
+        Locale.setDefault(locale);
+
+        Resources resources = context.getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 
     public static boolean isGridViewEnabled() {

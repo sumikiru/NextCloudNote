@@ -84,6 +84,33 @@
             android:summary="%s"
             android:title="@string/settings_font_size" />
 
+        <!--
+               <ListPreference
+                   android:defaultValue="@string/pref_value_switch_language_English"
+                   android:entries="@array/switchLanguage_entries"
+                   android:entryValues="@array/switchLanguage_values"
+                   android:icon="@drawable/ic_text_format_grey600_24dp"
+                   android:key="@string/pref_key_switch_language"
+                   android:layout="@layout/item_pref"
+                   android:summary="%s"
+              android:title="@string/settings_switch_language" />
+
+
+               <it.niedermann.owncloud.notes.branding.BrandedSwitchPreference
+                   android:defaultValue="true"
+                   android:icon="@drawable/ic_text_format_grey600_24dp"
+                   android:key="@string/pref_key_switch_language"
+                   android:layout="@layout/item_pref"
+                   android:summary="@string/settings_switch_language_summary"
+                   android:title="@string/settings_switch_language" />
+        -->
+        <it.niedermann.owncloud.notes.branding.BrandedSwitchPreference
+                android:defaultValue="true"
+                android:icon="@drawable/ic_text_format_grey600_24dp"
+                android:key="@string/pref_key_switch_language"
+                android:layout="@layout/item_pref"
+                android:summary="@string/settings_keep_screen_on_summary"
+                android:title="@string/settings_switch_language" />
         <it.niedermann.owncloud.notes.branding.BrandedSwitchPreference
             android:defaultValue="true"
             android:icon="@drawable/ic_baseline_smartphone_24"

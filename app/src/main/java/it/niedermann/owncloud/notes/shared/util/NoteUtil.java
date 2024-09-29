@@ -148,4 +148,14 @@ public class NoteUtil {
             return context.getResources().getDimension(R.dimen.note_font_size_large);
         }
     }
+
+//    @SuppressWarnings("WeakerAccess") //PMD...
+//    public static boolean getLanguageFromPreferences(@NonNull Context context, @NonNull SharedPreferences sp) {
+//        final String prefValueSimplifiedChinese = context.getString(R.string.pref_value_switch_language_Chinese_Simplified);
+//        final String prefValueEnglish = context.getString(R.string.pref_value_switch_language_English);
+//        String switchLanguage = sp.getString(context.getString(R.string.pref_key_switch_language), prefValueEnglish);
+//
+//        return switchLanguage.equals(prefValueEnglish); // 英文时为true
+//    }
+
 }
