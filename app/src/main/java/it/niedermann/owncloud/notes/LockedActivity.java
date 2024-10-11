@@ -31,10 +31,11 @@ public abstract class LockedActivity extends BrandedActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler(this));
-
+        //设置未捕获异常处理器
+        Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler(this));//
+        // 检查用户偏好设置，防止屏幕截图
         if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_key_prevent_screen_capture), false)) {
+            // 设置安全标志，防止屏幕捕获
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         }
 
@@ -56,17 +57,18 @@ public abstract class LockedActivity extends BrandedActivity {
     protected void onStop() {
         super.onStop();
         if (isTaskRoot()) {
-            NotesApplication.updateLastInteraction();
+            NotesApplication.updateLastInteraction();//更新交互时间（活动时）
         }
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() {//按下后退时更新交互时间
         super.onBackPressed();
         NotesApplication.updateLastInteraction();
     }
 
     @Override
+    //启用新活动更新交互时间
     public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
         NotesApplication.updateLastInteraction();
         super.startActivityForResult(intent, requestCode, options);
@@ -93,7 +95,7 @@ public abstract class LockedActivity extends BrandedActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+//解锁请求的结果处理
         if (requestCode == REQUEST_CODE_UNLOCK) {
             if (resultCode == RESULT_OK) {
                 Log.v(TAG, "Successfully unlocked device");
@@ -104,17 +106,20 @@ public abstract class LockedActivity extends BrandedActivity {
             }
         }
     }
-
+//解锁方法提示
     private void askToUnlock() {
         if (NotesApplication.isLocked()) {
             final var keyguardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
             if (keyguardManager != null) {
-                final var intent = keyguardManager.createConfirmDeviceCredentialIntent(getString(R.string.unlock_notes), null);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivityForResult(intent, REQUEST_CODE_UNLOCK);
+                Intent intent = keyguardManager.createConfirmDeviceCredentialIntent(getString(R.string.unlock_notes), null);
+                if (intent != null) { // 确保意图不为空
+                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//添加了对intent的检测，否则上述创建的intent有可能因为设备或权限问题返回null
+                    startActivityForResult(intent, REQUEST_CODE_UNLOCK);
+                } else {
+                    Log.e(TAG, "Unlock intent is null");
+                }
             } else {
                 Log.e(TAG, "Keyguard manager is null");
             }
         }
     }
-}

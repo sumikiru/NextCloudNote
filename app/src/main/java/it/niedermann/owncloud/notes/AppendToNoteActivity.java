@@ -31,7 +31,7 @@ public class AppendToNoteActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        receivedText = ShareUtil.extractSharedText(getIntent());
+        receivedText = ShareUtil.extractSharedText(getIntent()); //获取共享文本
         @Nullable final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             getSupportActionBar().setTitle(R.string.append_to_note);
@@ -43,24 +43,26 @@ public class AppendToNoteActivity extends MainActivity {
 
     @Override
     public void onNoteClick(int position, View v) {
-        if (!TextUtils.isEmpty(receivedText)) {
-            final var fullNote$ = mainViewModel.getFullNote$(((Note) adapter.getItem(position)).getId());
+        if (!TextUtils.isEmpty(receivedText)) {//检查获取的文本是否为空
+            final var fullNote$ = mainViewModel.getFullNote$(((Note) adapter.getItem(position)).getId());//观察完整笔记数据的变化
             fullNote$.observe(this, (fullNote) -> {
-                fullNote$.removeObservers(this);
-                final String oldContent = fullNote.getContent();
+                fullNote$.removeObservers(this);//有数据则移除观察防止内存泄漏
+                final String oldContent = fullNote.getContent();//获取内容
                 String newContent;
+                //原内容不为空则添加，为空则直接使用新内容
                 if (!TextUtils.isEmpty(oldContent)) {
                     newContent = oldContent + "\n\n" + receivedText;
                 } else {
                     newContent = receivedText;
                 }
-                final var updateLiveData = mainViewModel.updateNoteAndSync(fullNote, newContent, null);
+                final var updateLiveData = mainViewModel.updateNoteAndSync(fullNote, newContent, null);//观察更新结果
                 updateLiveData.observe(this, (next) -> {
-                    Toast.makeText(this, getString(R.string.added_content, receivedText), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.added_content, receivedText), Toast.LENGTH_SHORT).show()
                     updateLiveData.removeObservers(this);
                 });
             });
         } else {
+            //文本为空发出提示
             Toast.makeText(this, R.string.shared_text_empty, Toast.LENGTH_SHORT).show();
         }
         finish();
