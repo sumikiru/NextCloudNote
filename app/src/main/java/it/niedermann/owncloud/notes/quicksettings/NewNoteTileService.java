@@ -80,8 +80,8 @@ private void promptForNotePriority() {
             .setTitle("选择笔记优先级")
             .setItems(priorities, (dialog, which) -> {
                 String selectedPriority = priorities[which];
-                // 这里用监视器将选择的优先级与标题一起传递
-                launchEditNoteActivity(selectedTitle, selectedPriority);
+                // 这里将选择的优先级与标题一起传递
+                launchEditNoteActivity(noteTitle, selectedPriority);
             })
             .show();
 }
