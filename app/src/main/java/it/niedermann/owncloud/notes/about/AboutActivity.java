@@ -51,7 +51,10 @@ public class AboutActivity extends LockedActivity {
             }
         }).attach();
     }
-
+    /**
+     * 重写onCreate方法，用于初始化Activity
+     * 如果Activity之前被系统销毁，则从该Bundle中恢复保存的状态
+     */
     @Override
     public void applyBrand(int color) {
         final var util = BrandingUtil.of(color, this);
