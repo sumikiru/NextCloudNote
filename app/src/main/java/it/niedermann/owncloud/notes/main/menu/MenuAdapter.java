@@ -45,7 +45,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
                 new MenuItem(new Intent(context, FormattingHelpActivity.class), R.string.action_formatting_help, R.drawable.ic_baseline_help_outline_24),
                 new MenuItem(generateTrashbinIntent(context, account), R.string.action_trashbin, R.drawable.ic_delete_grey600_24dp),
                 new MenuItem(new Intent(context, PreferencesActivity.class), settingsRequestCode, R.string.action_settings, R.drawable.ic_settings_grey600_24dp),
-                new MenuItem(new Intent(context, AboutActivity.class), R.string.simple_about, R.drawable.ic_info_outline_grey600_24dp)
+                new MenuItem(new Intent(context, AboutActivity.class), R.string.simple_about, R.drawable.ic_info_outline_grey600_24dp),
+                new MenuItem(new Intent(context, DarkModeActivity.class), R.string.action_dark_mode, R.drawable.ic_baseline_help_outline_24)
         };
         this.onClick = onClick;
         this.color = color;
