@@ -26,6 +26,7 @@ public class NewNoteTileService extends TileService {
 
     @Override
     public void onClick() {
+        //在快速设置中可以选择标题
         promptForNoteTitle();
         // create new note intent
         final var newNoteIntent = new Intent(getApplicationContext(), EditNoteActivity.class);
@@ -36,11 +37,6 @@ public class NewNoteTileService extends TileService {
     }
 }
 
-//在快速设置中可以选择标题
-@Override
-public void onClick() {
-    promptForNoteTitle();
-}
 
 private void promptForNoteTitle() {
     // 创建一个 EditText 用于用户输入标题
@@ -65,6 +61,7 @@ private void promptForNoteTitle() {
 private void launchEditNoteActivity(String title) {
     Intent newNoteIntent = new Intent(getApplicationContext(), EditNoteActivity.class);
     newNoteIntent.putExtra("NOTE_TITLE", title); // 将标题传递给活动
+    newNoteIntent.putExtra("NOTE_PRIORITY", priorities); // 传递优先级
     newNoteIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 
     // 启动编辑活动
@@ -73,7 +70,7 @@ private void launchEditNoteActivity(String title) {
 
 
 //在快速设置时可以快捷选择优先级
-private void promptForNotePriority() {
+private void promptForNotePriority(String noteTitle) {
     String[] priorities = {"高", "中", "低"};
 
     new AlertDialog.Builder(this)
