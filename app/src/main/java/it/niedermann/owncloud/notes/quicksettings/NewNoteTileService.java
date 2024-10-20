@@ -49,7 +49,7 @@ private void promptForNoteTitle() {
             .setPositiveButton("确定", (dialog, which) -> {
                 String noteTitle = inputField.getText().toString().trim(); // 获取用户输入的标题
                 if (!noteTitle.isEmpty()) { // 检查标题是否为空
-                launchEditNoteActivity(noteTitle);} // 启动编辑笔记活动
+                promptForNotePriority(noteTitle);} // 启动选择优先级
             }
              else {
         Toast.makeText(this, "标题不能为空", Toast.LENGTH_SHORT).show(); // 显示提示信息
@@ -66,6 +66,8 @@ private void launchEditNoteActivity(String title) {
 
     // 启动编辑活动
     startActivity(newNoteIntent);
+    // 显示创建成功的通知
+    showConfirmationNotification(title);
 }
 
 
